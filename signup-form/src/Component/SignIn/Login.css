@@ -1,0 +1,112 @@
+/* Entire background should be white */
+body, html {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Main login layout */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background-color: white;
+}
+
+/* Left and right animal image containers */
+.side-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 30px;
+}
+
+/* Make the animal images bigger */
+.dog-img, .cat-img{
+  width: 140%;
+  height: 200px;
+  margin: 20px 150px 0 0
+}
+
+.bird-img, .fish-img{
+  width: 140%;
+  height: 200px;
+  margin: 20px 0 0 150px
+}
+
+/* Center form box with border */
+.form-box {
+  border: 2px solid black; /* Only form has a border */
+  padding: 30px;
+  border-radius: 10px;
+  background-color: white;
+  text-align: center;
+  min-width: 320px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+}
+
+.form-box h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid black;
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+}
+
+/* Login button */
+.login-button {
+  padding: 12px;
+  margin-top: 10px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.login-button:hover {
+  background-color: #333;
+}
+
+/* Forgot password link */
+.forgot-password {
+  display: block;
+  margin-top: 15px;
+  font-size: 13px;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.signup{
+  font-size: 13px;
+}
