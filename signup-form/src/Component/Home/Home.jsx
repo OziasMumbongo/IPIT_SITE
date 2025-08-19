@@ -1,18 +1,12 @@
 import React from 'react';
 import './HomePage.css';
+import NavBar from '../NavBar/NavBar';
 
 const Home = () => {
   return (
     <div className="homepage">
-      <nav className="navbar">
-        <div className="logo">MySite</div>
-        <ul className="nav-links">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
+      <NavBar/>
+          
       <header className="hero-section">
         <h1>Welcome to MySite</h1>
         <p>We help you build a better future with simple tools and reliable support.</p>
