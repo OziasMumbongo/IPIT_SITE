@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './SignUp.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-export default function SignupForm() {
+const SignupForm = ()=> {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,7 +10,7 @@ export default function SignupForm() {
     age: '',
     location: ''
   });
-  const [message, setMessage] = useState('');
+ 
   const navigate = useNavigate();
 
   const handleChange = e => {
@@ -85,3 +85,5 @@ export default function SignupForm() {
     </div>
   );
 }
+
+export default SignupForm

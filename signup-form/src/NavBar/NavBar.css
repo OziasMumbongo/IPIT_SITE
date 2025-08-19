@@ -1,0 +1,107 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar container */
+.navBar {
+  width: 100%;
+  background: #ffffff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Left side (logo + name) */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo_name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2d5a27;
+}
+
+/* Links */
+.links_names {
+  display: flex;
+  gap: 20px;
+}
+
+.links {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.links:hover {
+  color: #2d5a27;
+}
+
+/* Icons */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-tags {
+  cursor: pointer;
+  font-size: 1.8rem !important;
+  transition: color 0.3s;
+}
+
+.icon-tags:hover {
+  color: #2d5a27;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .links_names {
+    position: absolute;
+    top: 70px;
+    right: -100%;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 200px;
+    padding: 20px;
+    transition: right 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .links_names.active {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}

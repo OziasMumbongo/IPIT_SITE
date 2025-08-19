@@ -88,6 +88,7 @@ const LogIn = ({ setIsLoggedIn }) => {
         <img src="images/fish1.jpeg" alt="fish" className="fish-img" />
       </div>
     </div>
+    
   );
 };
 
