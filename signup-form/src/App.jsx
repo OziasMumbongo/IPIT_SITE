@@ -5,6 +5,9 @@ import LogIn from './Component/SignIn/LogIn';
 import HomePages from './Pages/HomePages';
 import PrivateRoute from './Component/SignUp/PrivateRoute';
 import NavBar from './Component/NavBar/NavBar'
+import Swipper from './Component/Swipper/Swipper';
+
+
 
 
 function App() {
@@ -25,6 +28,7 @@ function App() {
           }
         /> */}
         <Route path="/navbar" element={<NavBar/>} />
+        <Route path="/swipper" element={<Swipper/>} />
       </Routes>
     </BrowserRouter>
   );

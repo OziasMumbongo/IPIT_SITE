@@ -1,15 +1,14 @@
 import React from 'react';
 import './HomePage.css';
 import NavBar from '../NavBar/NavBar';
+import Swipper from '../Swipper/Swipper';
 
 const Home = () => {
   return (
     <div className="homepage">
       <NavBar/>
-          
       <header className="hero-section">
-        <h1>Welcome to MySite</h1>
-        <p>We help you build a better future with simple tools and reliable support.</p>
+        <Swipper/>
       </header>
 
       <section id="features" className="features-section">

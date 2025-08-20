@@ -45,11 +45,11 @@ body, html {
 }
 
 
-.hero-section {
+/* .hero-section {
   text-align: center;
   padding: 100px 20px;
   background: linear-gradient(135deg, #e0f7fa, #f1f8ff);
-}
+} */
 
 .hero-section h1 {
   font-size: 48px;
