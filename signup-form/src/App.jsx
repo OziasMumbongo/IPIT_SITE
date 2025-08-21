@@ -6,6 +6,8 @@ import HomePages from './Pages/HomePages';
 import PrivateRoute from './Component/SignUp/PrivateRoute';
 import NavBar from './Component/NavBar/NavBar'
 import Swipper from './Component/Swipper/Swipper';
+import Banner from './Component/Banner/Banner';
+import Product from './Component/Product/Product';
 
 
 
@@ -29,6 +31,8 @@ function App() {
         /> */}
         <Route path="/navbar" element={<NavBar/>} />
         <Route path="/swipper" element={<Swipper/>} />
+        <Route path="/banner" element={<Banner/>} />
+        <Route path="/product" element={<Product/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,33 @@
+.mySwiper1 {
+  width: 100%;
+  padding: 20px 0; /* Some breathing room */
+  margin: 5% 0 0 0;
+}
+
+.mySwiper1 .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mySwiper1 .swiper-slide img {
+  width: 70%;
+  height: 30vh;         /* Fixed height for consistency */
+  object-fit: cover;     /* Crop to fill nicely */
+  border-radius: 15px;   /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.mySwiper1 .swiper-slide img:hover {
+  transform: scale(1.05); /* Subtle zoom on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Make height adapt better on very small screens */
+@media (max-width: 600px) {
+  .mySwiper1 .swiper-slide img {
+    height: 180px;
+  }
+}

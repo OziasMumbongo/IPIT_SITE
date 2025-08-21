@@ -157,7 +157,7 @@ app.delete('/Users/:id', async (req, res) => {
   }
 });
 
-app.use(basicAuth)
+// app.use(basicAuth)
 
 //CRUD FOR PRODUCTS
 app.get('/Products', async (req, res) => {

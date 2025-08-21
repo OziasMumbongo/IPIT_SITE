@@ -3,13 +3,14 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
-import 'swiper/css';
+
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
 import './Swipper.css';
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 
 const Swipper = () => {
   return (
@@ -18,30 +19,33 @@ const Swipper = () => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 3400,
+          delay: 3800,
           disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
         }}
         navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        effect="fade"             
+        fadeEffect={{ crossFade: true }}
+
+        modules={[Autoplay, Pagination, Navigation, EffectFade]}
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="images/swipper2.jpg" alt="Slide 1" />
+          <img src="images/swiper-image.jpg" alt="Slide 1" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="images/swiper.jpg" alt="Slide 2" />
+          <img src="images/swiper-image2.jpg" alt="Slide 2" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="images/swiper3.jpg" alt="Slide 3" />
+          <img src="images/swiper-image3.jpg" alt="Slide 3" />
         </SwiperSlide>
         <SwiperSlide>
-          <div className="slide-content">Slide 4</div>
+          <img src="images/swiper-image4.jpg" alt="Slide 4" />
         </SwiperSlide>
         <SwiperSlide>
-          <div className="slide-content">Slide 5</div>
+         <img src="images/swiper-image5.jpg" alt="Slide 5" />
         </SwiperSlide>
       </Swiper>
     </div>

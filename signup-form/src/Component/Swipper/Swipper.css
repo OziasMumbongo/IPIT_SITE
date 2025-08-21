@@ -1,7 +1,7 @@
 .swiper-container {
   width: 100%;
   max-width: 1200px; /* Keeps it centered on large screens */
-  margin: auto;
+  margin: 0.2% auto 0 auto;
 }
 
 .mySwiper {
@@ -44,6 +44,6 @@
 /* 💻 Large screens */
 @media (min-width: 1200px) {
   .mySwiper {
-    height: 70vh;
+    height: 80vh;
   }
 }
