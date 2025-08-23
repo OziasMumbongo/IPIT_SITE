@@ -5,8 +5,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { Link } from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = ({ cartCount }) => {   // <-- accept cartCount as prop
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -30,7 +31,14 @@ const NavBar = () => {
       <div className="icons"> 
         <SearchIcon className='icon-tags'/>
         <AccountCircleIcon className='icon-tags'/>
-        <ShoppingCartIcon className='icon-tags'/>
+
+        <div className="cart-wrapper">
+            <Link to="/cart">
+              <ShoppingCartIcon className='icon-tags'/>
+                {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+            </Link>
+        </div>
+
         <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </div>

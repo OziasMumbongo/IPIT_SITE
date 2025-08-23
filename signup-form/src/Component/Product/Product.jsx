@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Product.css';
 
-const Product = () => {
+const Product = ({ addToCart }) => {   // <-- accept addToCart from Home
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -34,7 +34,12 @@ const Product = () => {
               <h3 className="product-title">{product.Product}</h3>
               <p className="product-price">{product.Price}</p>
               <div className="button-group">
-                <button className="btn add-to-cart">Add to Cart</button>
+                <button 
+                  className="btn add-to-cart" 
+                  onClick={() => addToCart(product)}  // <-- trigger addToCart
+                >
+                  Add to Cart
+                </button>
                 <button className="btn buy-now">Buy Now</button>
               </div>
             </div>
