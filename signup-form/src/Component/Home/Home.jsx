@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './HomePage.css';
 import NavBar from '../NavBar/NavBar';
 import Swipper from '../Swipper/Swipper';
 import Banner from '../Banner/Banner';
 import Product from '../Product/Product';
 
-const Home = () => {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (product) => {
-    setCart([...cart, product]); // add clicked product to cart
-  };
+const Home = ({ cart, addToCart }) => {   // ✅ receive from App.js
 
   return (
     <div className="homepage">
-      <NavBar cartCount={cart.length} />   {/* pass count */}
+      <NavBar cartCount={cart.length} />   {/* ✅ use cart from props */}
       <header className="hero-section">
         <Swipper/>
         <Banner/>
@@ -22,7 +17,7 @@ const Home = () => {
 
       <section id="features" className="features-section">
         <h2>Features</h2>
-        <Product addToCart={addToCart} />   {/* pass function */}
+        <Product addToCart={addToCart} />   {/* ✅ still works */}
       </section>
 
       <footer className="footer">

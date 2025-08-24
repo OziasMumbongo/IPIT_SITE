@@ -36,7 +36,9 @@ const Product = ({ addToCart }) => {   // <-- accept addToCart from Home
               <div className="button-group">
                 <button 
                   className="btn add-to-cart" 
-                  onClick={() => addToCart(product)}  // <-- trigger addToCart
+                  onClick={() => {
+                    console.log("Added to cart",product)
+                    addToCart(product)}}  // <-- trigger addToCart
                 >
                   Add to Cart
                 </button>

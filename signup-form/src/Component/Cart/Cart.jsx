@@ -5,20 +5,22 @@ const Cart = ({ cart }) => {
   return (
     <div className="cart-page">
       <h1>Your Cart</h1>
-      {cart.length > 0 ? (
+
+      {cart.length === 0 ? (
+        <p className="empty-cart">Your cart is empty.</p>
+      ) : (
         <div className="cart-items">
           {cart.map((item, index) => (
             <div key={index} className="cart-item">
               <img src={item.Image} alt={item.Product} className="cart-item-image" />
               <div className="cart-item-details">
                 <h3>{item.Product}</h3>
-                <p>{item.Price}</p>
+                <p>{item.Description}</p>
+                <p className="cart-item-price">{item.Price}</p>
               </div>
             </div>
           ))}
         </div>
-      ) : (
-        <p>Your cart is empty</p>
       )}
     </div>
   );
