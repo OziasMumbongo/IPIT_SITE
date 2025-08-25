@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Product.css';
+import NavBar from '../NavBar/NavBar';
 
 const Product = ({ addToCart }) => {   // <-- accept addToCart from Home
   const [products, setProducts] = useState([]);
@@ -22,6 +23,7 @@ const Product = ({ addToCart }) => {   // <-- accept addToCart from Home
   }, []);
 
   return (
+    <>
     <div className="homepage">
       <h1 className="page-title">Shop Products</h1>
       <div className="products-list">
@@ -39,10 +41,9 @@ const Product = ({ addToCart }) => {   // <-- accept addToCart from Home
                   onClick={() => {
                     console.log("Added to cart",product)
                     addToCart(product)}}  // <-- trigger addToCart
-                >
-                  Add to Cart
+                >Add to Cart
                 </button>
-                <button className="btn buy-now">Buy Now</button>
+                {/* <button className="btn buy-now">Buy Now</button> */}
               </div>
             </div>
           ))
@@ -51,6 +52,7 @@ const Product = ({ addToCart }) => {   // <-- accept addToCart from Home
         )}
       </div>
     </div>
+    </>
   );
 };
 

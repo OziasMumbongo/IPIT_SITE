@@ -9,7 +9,6 @@ body, html {
 }
 
 .homepage {
-  background-color: #f5f7fa;
   color: #333;
 }
 
@@ -112,7 +111,7 @@ body, html {
 
 /* Footer */
 .footer {
-  background-color: #1e90ff;
+  background-color: #ff4500;;
   color: white;
   text-align: center;
   padding: 20px;

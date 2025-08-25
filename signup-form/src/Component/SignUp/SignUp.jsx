@@ -28,7 +28,7 @@ const SignupForm = ()=> {
       if (!res.ok) throw new Error();
       localStorage.setItem('isLoggedIn', 'true');
       alert('Signed up successfully!');
-      navigate('/homepages');
+      navigate('/homepage');
     } catch {
       alert('Signup failed.');
     }

@@ -12,28 +12,33 @@ const LogIn = ({ setIsLoggedIn }) => {
   };
 
   const handleSubmit = async e => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const res = await fetch('http://localhost:3000/Users');
-      const users = await res.json();
+  try {
+    const res = await fetch('http://localhost:3000/Users');
+    const users = await res.json();
+    console.log("Users:", users); // ✅ Debugging line
 
-      const user = users.find(
-        u => u.email === formData.email && u.password === formData.password
-      );
+    const user = users.find(
+      u => u.email === formData.email && u.password === formData.password
+    );
 
-      if (user) {
-        setIsLoggedIn(true); // ✅ set login state
-        alert('Login successful!');
-        navigate('/homepages'); // ✅ go to protected page
-      } else {
-        alert('Invalid email or password.');
-      }
-    } catch (error) {
-      console.error('Login error:', error);
-      alert('An error occurred while logging in.');
+    if (user) {
+      setIsLoggedIn(true);
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('username', user.name);
+      localStorage.setItem('userEmail', user.email);
+      alert('Login successful!');
+      navigate('/homepage'); // <- update to match your routing
+    } else {
+      alert('Invalid email or password.');
     }
-  };
+  } catch (error) {
+    console.error('Login error:', error);
+    alert('An error occurred while logging in.');
+  }
+};
+
 
   return (
     <div className="login-container">

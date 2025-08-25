@@ -3,14 +3,12 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
-
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import './Swipper.css';
 
 // import required modules
-import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
+import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 
 const Swipper = () => {
   return (
@@ -25,11 +23,9 @@ const Swipper = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
         effect="fade"             
         fadeEffect={{ crossFade: true }}
-
-        modules={[Autoplay, Pagination, Navigation, EffectFade]}
+        modules={[Autoplay, Pagination, EffectFade]}
         className="mySwiper"
       >
         <SwiperSlide>
@@ -45,7 +41,7 @@ const Swipper = () => {
           <img src="images/swiper-image4.jpg" alt="Slide 4" />
         </SwiperSlide>
         <SwiperSlide>
-         <img src="images/swiper-image5.jpg" alt="Slide 5" />
+          <img src="images/swiper-image5.jpg" alt="Slide 5" />
         </SwiperSlide>
       </Swiper>
     </div>

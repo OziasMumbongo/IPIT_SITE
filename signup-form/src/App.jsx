@@ -1,23 +1,52 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SignupForm from './Component/SignUp/Signup';
 import LogIn from './Component/SignIn/LogIn';
-import HomePages from './Pages/HomePages';
+import HomePage from './Pages/HomePage';
 import PrivateRoute from './Component/SignUp/PrivateRoute';
-import NavBar from './Component/NavBar/NavBar'
+import NavBar from './Component/NavBar/NavBar';
 import Swipper from './Component/Swipper/Swipper';
 import Banner from './Component/Banner/Banner';
 import Product from './Component/Product/Product';
-import Cart from './Component/Cart/Cart';   // ✅ new cart component
+import Cart from './Component/Cart/Cart';
+import Checkout from './Component/Checkout/Checkout';
+import Orders from './Component/Orders/Orders';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [cart, setCart] = useState([]);  // ✅ cart state
 
-  // function to add to cart
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
+
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+
+const addToCart = (product) => {
+  setCart((prevCart) => {
+    const existing = prevCart.find((item) => item._id === product._id);
+    if (existing) {
+
+      return prevCart.map((item) =>
+        item._id === product._id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    } else {
+      return [...prevCart, { ...product, quantity: 1 }];
+    }
+  });
+}
+
+
+  const removeFromCart = (index) => {
+    const updatedCart = cart.filter((_, i) => i !== index);
+    setCart(updatedCart);
+  }
 
   return (      
     <BrowserRouter>
@@ -26,26 +55,29 @@ function App() {
         <Route path="/login" element={<LogIn setIsLoggedIn={setIsLoggedIn} />} />
         
         {/* Homepage gets cart + addToCart */}
-        <Route path="/homepage" element={<HomePages cart={cart} addToCart={addToCart} />} />
+        <Route path="/home" element={<HomePage cart={cart} addToCart={addToCart} />} />
 
         {/* Optional private route */}
-        {/* <Route
-          path="/homepages"
+        <Route
+          path="/homepage"
           element={
             <PrivateRoute isLoggedIn={isLoggedIn}>
-              <HomePages cart={cart} addToCart={addToCart} />
+              <HomePage cart={cart} addToCart={addToCart} />
             </PrivateRoute>
           }
-        /> */}
+        />
 
         {/* Other components */}
         <Route path="/navbar" element={<NavBar cartCount={cart.length} />} />
         <Route path="/swipper" element={<Swipper/>} />
         <Route path="/banner" element={<Banner/>} />
-        <Route path="/product" element={<Product addToCart={addToCart} />} />
+        <Route path="/checkout" element={<Checkout/>} />
+        <Route path="/orders" element={<Orders />} />
+
+        <Route path="/products" element={<Product addToCart={addToCart} />} />
 
         {/* ✅ New Cart Page */}
-        <Route path="/cart" element={<Cart cart={cart} />} />
+        <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
       </Routes>
     </BrowserRouter>
   );

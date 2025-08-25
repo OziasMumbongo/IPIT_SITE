@@ -2,7 +2,7 @@
 import React from 'react'
 import Home from '../Component/Home/Home'
 
-const HomePages = ({ cart, addToCart }) => {   // ✅ accept props
+const HomePage = ({ cart, addToCart }) => {   // ✅ accept props
   return (
     <div>
       <Home cart={cart} addToCart={addToCart} />   {/* ✅ forward props */}
@@ -10,4 +10,4 @@ const HomePages = ({ cart, addToCart }) => {   // ✅ accept props
   )
 }
 
-export default HomePages
+export default HomePage
