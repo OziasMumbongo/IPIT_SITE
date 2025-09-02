@@ -134,3 +134,34 @@
 .username {
   font-size: 14px;
 }
+
+.account-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 1.5rem;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0.5rem;
+  height: 39px;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu button {
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  margin: -9px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+

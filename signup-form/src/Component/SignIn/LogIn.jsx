@@ -11,33 +11,40 @@ const LogIn = ({ setIsLoggedIn }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async e => {
+const handleSubmit = async e => {
   e.preventDefault();
 
   try {
-    const res = await fetch('http://localhost:3000/Users');
-    const users = await res.json();
-    console.log("Users:", users); // ✅ Debugging line
+    const res = await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: formData.email,
+        password: formData.password
+      })
+    });
 
-    const user = users.find(
-      u => u.email === formData.email && u.password === formData.password
-    );
+    const data = await res.json();
 
-    if (user) {
-      setIsLoggedIn(true);
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('username', user.name);
-      localStorage.setItem('userEmail', user.email);
-      alert('Login successful!');
-      navigate('/homepage'); // <- update to match your routing
-    } else {
-      alert('Invalid email or password.');
+    if (!res.ok) {
+      alert(data.message || 'Login failed.');
+      return;
     }
+
+    setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('username', data.name);
+    localStorage.setItem('userEmail', data.email);
+
+    alert('Login successful!');
+    navigate('/homepage');
+
   } catch (error) {
     console.error('Login error:', error);
     alert('An error occurred while logging in.');
   }
 };
+
 
 
   return (

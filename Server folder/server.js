@@ -6,7 +6,8 @@ const { MongoClient } = require('mongodb');
 const base64 = require('base-64');
 const app = express();
 const port = 3000;
-
+const bcrypt = require('bcrypt');
+const  saltRounds = 10
 
 app.use(cors())
 app.use(bodyParser.json());
@@ -36,15 +37,18 @@ const credentials = base64.decode(base64Credential).split(":");
 const email = credentials[0];
 const password = credentials[1];
 const collection = db.collection("Users");
+
+
 const user = await collection.findOne({ email });
 if (!user){
   return res.status(401).json({ message: "User not found" });
 }
 
-const decodedStoredPassword = base64.decode(user.password);
-if (decodedStoredPassword !== password){
-  return res.status(401).json({ message: "Invalid password"});
+const isMatch = await bcrypt.compare(password, user.password);
+if (!isMatch) {
+  return res.status(401).json({ message: "Invalid password" });
 }
+
 
 req.user = user;
 next();
@@ -94,16 +98,26 @@ app.post('/Users', async (req, res) => {
   
   try{
     const newUser = req.body;
-     newUser.password = base64.encode(newUser.password);
-    const result = await usersCollection.insertOne(newUser);
-
+    
     if(!newUser.name || !newUser.password || !newUser.age || !newUser.email || !newUser.location){
       console.log("Missing required details")
       return res.status(400).send("Missing required details")
-    } else{
-      console.log("Successfully Created");
-      return res.status(201).send(newUser)
+    } 
+      
+    const existingUser = await usersCollection.findOne({email: newUser.email});
+    if(existingUser){
+      console.log("Email has been used already");
+      return res.status(409).send({ message: "Email already registered" });
     }
+
+    newUser.password = await bcrypt.hash(newUser.password, saltRounds);
+
+    const result = await usersCollection.insertOne(newUser);
+    
+    console.log("Successfully Created");
+    return res.status(201).send(newUser)
+
+
   } catch (error) { 
     console.error(error);
     res.status(500).send("Server error");
@@ -120,11 +134,12 @@ app.put('/Users/:id', async (req, res) => {
     delete updateUser._id;
 
   if (updateUser.password) {
-      updateUser.password = base64.encode(updateUser.password);
-    }
+  updateUser.password = await bcrypt.hash(updateUser.password, saltRounds);
+}
+
 
     const updatedData = await usersCollection.updateOne({ _id: new ObjectId(usersId)},{ $set: updateUser});
-  if(!updateUser.name || !updateUser.password || updateUser.email || !newUser.location){
+  if(!updateUser.name || !updateUser.password || !updateUser.email || !newUser.location){
     console.log("User Not Found")
     res.status(400).send("Missing Required Details")
   } else {
@@ -142,9 +157,10 @@ app.delete('/Users/:id', async (req, res) => {
   
   try{
     const { ObjectId } = require('mongodb');
-    const usersId = req.body;
+    const usersId = req.params.id;
     const deleteId = await usersCollection.deleteOne({ _id: new ObjectId(usersId) });
-    if(!deleteId){
+
+    if(result.deleteCount === 0){
       console.log("User Not Found");
       return res.status(404).send("User Not Found");
     } else{
@@ -156,6 +172,36 @@ app.delete('/Users/:id', async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+
+app.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await usersCollection.findOne({ email });
+
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid email or password' });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Invalid email or password' });
+    }
+
+    // You can also return token/session info here
+    res.status(200).json({
+      message: 'Login successful',
+      name: user.name,
+      email: user.email
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
 
 // app.use(basicAuth)
 

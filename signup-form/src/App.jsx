@@ -13,7 +13,9 @@ import Checkout from './Component/Checkout/Checkout';
 import Orders from './Component/Orders/Orders';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const [isLoggedIn, setIsLoggedIn] = useState(() => {
+  return localStorage.getItem('isLoggedIn') === 'true';
+});
 
 
   const [cart, setCart] = useState(() => {

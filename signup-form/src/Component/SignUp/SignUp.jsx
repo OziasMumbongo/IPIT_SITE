@@ -8,7 +8,7 @@ const SignupForm = ()=> {
     email: '',
     password: '',
     age: '',
-    location: ''
+    location: '' 
   });
  
   const navigate = useNavigate();
@@ -25,12 +25,13 @@ const SignupForm = ()=> {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
+
       if (!res.ok) throw new Error();
       localStorage.setItem('isLoggedIn', 'true');
       alert('Signed up successfully!');
       navigate('/homepage');
     } catch {
-      alert('Signup failed.');
+      alert('Email has been used already.');
     }
   };
 
