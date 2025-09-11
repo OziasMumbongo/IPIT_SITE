@@ -29,7 +29,7 @@ const SignupForm = ()=> {
       if (!res.ok) throw new Error();
       localStorage.setItem('isLoggedIn', 'true');
       alert('Signed up successfully!');
-      navigate('/homepage');
+      navigate('/login');
     } catch {
       alert('Email has been used already.');
     }

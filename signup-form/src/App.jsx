@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SignupForm from './Component/SignUp/Signup';
 import LogIn from './Component/SignIn/LogIn';
 import HomePage from './Pages/HomePage';
 import PrivateRoute from './Component/SignUp/PrivateRoute';
@@ -11,6 +10,7 @@ import Product from './Component/Product/Product';
 import Cart from './Component/Cart/Cart';
 import Checkout from './Component/Checkout/Checkout';
 import Orders from './Component/Orders/Orders';
+import SignupForm from './Component/SignUp/SignUp';
 
 function App() {
 const [isLoggedIn, setIsLoggedIn] = useState(() => {
