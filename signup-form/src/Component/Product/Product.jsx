@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Product.css';
 import NavBar from '../NavBar/NavBar';
 
-const Product = ({ addToCart }) => {   // <-- accept addToCart from Home
+const Product = ({ addToCart, searchQuery }) => {   // <-- accept addToCart from Home
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -22,13 +22,16 @@ const Product = ({ addToCart }) => {   // <-- accept addToCart from Home
     fetchProducts();
   }, []);
 
+   const filteredProducts = products.filter(product =>
+    product.Product.toLowerCase().includes(searchQuery.toLowerCase()));
+
   return (
     <>
     <div className="homepage">
       <h1 className="page-title">Shop Products</h1>
       <div className="products-list">
-        {products.length > 0 ? (
-          products.map((product) => (
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
             <div key={product._id} className="product-card">
               <div className="image-container">
                 <img src={product.Image} alt={product.Product} />

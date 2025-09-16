@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './HomePage.css';
 import NavBar from '../NavBar/NavBar';
 import Swipper from '../Swipper/Swipper';
@@ -6,10 +6,15 @@ import Banner from '../Banner/Banner';
 import Product from '../Product/Product';
 
 const Home = ({ cart, addToCart }) => {   // ✅ receive from App.js
+ const [searchQuery, setSearchQuery] = useState('')
 
   return (
     <div className="homepage">
-      <NavBar cartCount={cart.length} />   {/* ✅ use cart from props */}
+      <NavBar cartCount={cart.length}
+      searchQuery={searchQuery} 
+      setSearchQuery={setSearchQuery} 
+      />   {/* ✅ use cart from props */}
+    
       <header className="hero-section">
         <Swipper/>
         <Banner/>
@@ -17,7 +22,7 @@ const Home = ({ cart, addToCart }) => {   // ✅ receive from App.js
 
       <section id="features" className="features-section">
         <h2>Features</h2>
-        <Product addToCart={addToCart} />   {/* ✅ still works */}
+        <Product addToCart={addToCart} searchQuery={searchQuery}/>   {/* ✅ still works */}
       </section>
 
       <footer className="footer">

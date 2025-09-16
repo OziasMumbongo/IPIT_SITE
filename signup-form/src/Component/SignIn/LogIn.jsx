@@ -33,8 +33,8 @@ const handleSubmit = async e => {
 
     setIsLoggedIn(true);
     localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('username', data.name);
-    localStorage.setItem('userEmail', data.email);
+    localStorage.setItem('username', data.user.name);
+    localStorage.setItem('userEmail', data.user.email);
 
     alert('Login successful!');
     navigate('/homepage');

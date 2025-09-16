@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link, useNavigate } from 'react-router-dom';
 
-const NavBar = ({ cartCount }) => {
+const NavBar = ({ cartCount, searchQuery, setSearchQuery }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [username, setUsername] = useState('');
 
@@ -50,6 +50,8 @@ const NavBar = ({ cartCount }) => {
           <input
             type="text"
             placeholder="Search products..."
+            value={searchQuery}
+            onChange={(e)=> setSearchQuery(e.target.value)}
           />
         </div>
 
