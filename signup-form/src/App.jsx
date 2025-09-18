@@ -54,7 +54,7 @@ const addToCart = (product) => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SignupForm setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path="/login" element={<LogIn setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/login" element={<LogIn setIsLoggedIn={setIsLoggedIn} setCart={setCart} />} />
         
         {/* Homepage gets cart + addToCart */}
         <Route path="/home" element={<HomePage cart={cart} addToCart={addToCart} />} />

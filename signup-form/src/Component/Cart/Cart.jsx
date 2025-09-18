@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Cart.css';
 
-const Cart = ({ cart, removeFromCart }) => {
+const Cart = ({ cart, setCart , removeFromCart }) => {
   // ✅ Calculate total based on quantity
   const total = cart.reduce((sum, item) => {
     const price = parseFloat(item.Price.replace(/[^0-9.-]+/g, ""));
@@ -36,9 +36,13 @@ const Cart = ({ cart, removeFromCart }) => {
                   {/* ✅ Quantity controls */}
                   <div className="quantity-controls">
                     <button
+                    // Decrease quantity
                       onClick={() => {
-                        if (item.quantity > 1) {
-                          cart[index].quantity -= 1;
+                        const updatedCart = [...cart];
+                        if (updatedCart[index].quantity > 1) {
+                          updatedCart[index].quantity -= 1;
+                          setCart(updatedCart);
+                          saveCartToStorage(updatedCart); // Save to localStorage
                         } else {
                           removeFromCart(index);
                         }
@@ -48,8 +52,12 @@ const Cart = ({ cart, removeFromCart }) => {
                     </button>
                     <span>{item.quantity}</span>
                     <button
+                     // Increase quantity
                       onClick={() => {
-                        cart[index].quantity += 1;
+                        const updatedCart = [...cart];
+                        updatedCart[index].quantity += 1;
+                        setCart(updatedCart);
+                        saveCartToStorage(updatedCart); // Save to localStorage
                       }}
                     >
                       +

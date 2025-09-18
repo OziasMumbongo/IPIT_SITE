@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './LogIn.css';
 
-const LogIn = ({ setIsLoggedIn }) => {
+const LogIn = ({ setIsLoggedIn, setCart }) => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const navigate = useNavigate();
 
@@ -31,13 +31,24 @@ const handleSubmit = async e => {
       return;
     }
 
+    const userEmail = data.user.email
+
     setIsLoggedIn(true);
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('username', data.user.name);
     localStorage.setItem('userEmail', data.user.email);
 
+    const savedCart = localStorage.getItem(`cart_${userEmail}`);
+    if(savedCart){
+      setCart(JSON.parse(savedCart));
+    }else{
+      setCart([])
+    }
+  
+
     alert('Login successful!');
     navigate('/homepage');
+
 
   } catch (error) {
     console.error('Login error:', error);

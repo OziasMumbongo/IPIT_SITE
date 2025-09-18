@@ -22,6 +22,11 @@ const NavBar = ({ cartCount, searchQuery, setSearchQuery }) => {
   const navigate = useNavigate()
 
   const handleLogout = () => {
+    const userEmail = localStorage.getItem('userEmail');
+  if (userEmail && cart) {
+    localStorage.setItem(`cart_${userEmail}`, JSON.stringify(cart));
+  }
+  
   localStorage.removeItem('isLoggedIn');
   localStorage.removeItem('username');
   localStorage.removeItem('userEmail');
@@ -56,14 +61,14 @@ const NavBar = ({ cartCount, searchQuery, setSearchQuery }) => {
         </div>
 
       <div className="account-icon" onClick={() => setShowDropdown(!showDropdown)}>
-        <AccountCircleIcon className='icon-tags' />
-        {username && <span className="username">{username}</span>}
+  <AccountCircleIcon className='icon-tags' />
+  {username && <span className="username">{username}</span>}
 
-        {showDropdown && (
-          <div className="dropdown-menu">
-            <button onClick={handleLogout}>Logout</button>
-          </div>
-  )}
+  {showDropdown && (
+    <div className="dropdown-menu">
+      <button onClick={handleLogout}>Logout</button>
+    </div>
+  )}  
 </div>
 
 
