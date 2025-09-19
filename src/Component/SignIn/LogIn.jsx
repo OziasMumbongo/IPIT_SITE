@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './LogIn.css';
+import './Login.css';
 
 const LogIn = ({ setIsLoggedIn, setCart }) => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
