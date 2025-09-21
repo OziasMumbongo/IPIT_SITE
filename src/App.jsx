@@ -13,13 +13,6 @@ import Orders from './Component/Orders/Orders';
 import SignupForm from './Component/SignUp/SignUp';
 
 function App() {
-
-const url = new URL(window.location);
-url.searchParams.set('ip');
-window.history.pushState({}, '', url); // Updates URL without reloading
-
-console.log(url)
-
 const [isLoggedIn, setIsLoggedIn] = useState(() => {
   return localStorage.getItem('isLoggedIn') === 'true';
 });
@@ -61,7 +54,7 @@ const addToCart = (product) => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SignupForm setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path="/login" element={<LogIn url={url} setIsLoggedIn={setIsLoggedIn} setCart={setCart} />} />
+        <Route path="/login" element={<LogIn setIsLoggedIn={setIsLoggedIn} setCart={setCart} />} />
         
         {/* Homepage gets cart + addToCart */}
         <Route path="/home" element={<HomePage cart={cart} addToCart={addToCart} />} />
@@ -81,9 +74,9 @@ const addToCart = (product) => {
         <Route path="/swipper" element={<Swipper/>} />
         <Route path="/banner" element={<Banner/>} />
         <Route path="/checkout" element={<Checkout/>} />
-        <Route path="/orders" element={<Orders url={url} />} />
+        <Route path="/orders" element={<Orders />} />
 
-        <Route path="/products" element={<Product url={url} addToCart={addToCart} />} />
+        <Route path="/products" element={<Product addToCart={addToCart} />} />
 
         {/* ✅ New Cart Page */}
         <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
