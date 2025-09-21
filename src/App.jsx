@@ -15,7 +15,7 @@ import SignupForm from './Component/SignUp/SignUp';
 function App() {
 
 const url = new URL(window.location);
-url.searchParams.set('ip','3.83.17.213');
+url.searchParams.set('ip');
 window.history.pushState({}, '', url); // Updates URL without reloading
 
 console.log(url)
