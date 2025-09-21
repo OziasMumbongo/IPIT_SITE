@@ -13,10 +13,16 @@ import Orders from './Component/Orders/Orders';
 import SignupForm from './Component/SignUp/SignUp';
 
 function App() {
+
+const fullUrl = new URL(window.location);
+const ip = fullUrl.searchParams.get('ip') || localStorage.getItem("ip");
+localStorage.setItem("ip",ip);
+const url = `http://${ip}:3000`;
+window.history.pushState({}, '', fullUrl)
+
 const [isLoggedIn, setIsLoggedIn] = useState(() => {
   return localStorage.getItem('isLoggedIn') === 'true';
 });
-
 
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
