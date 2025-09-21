@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
-const LogIn = ({backendURL, setIsLoggedIn, setCart }) => {
+const LogIn = ({url, setIsLoggedIn, setCart }) => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ const handleSubmit = async e => {
   e.preventDefault();
 
   try {
-    const res = await fetch(`${backendURL}/login`, {
+    const res = await fetch(`${url}/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

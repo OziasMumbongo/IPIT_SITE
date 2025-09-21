@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './Product.css';
 import NavBar from '../NavBar/NavBar';
 
-const Product = ({ backendURL, addToCart, searchQuery }) => {   // <-- accept addToCart from Home
+const Product = ({ url, addToCart, searchQuery }) => {   // <-- accept addToCart from Home
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${backendURL}/Products`);
+        const response = await fetch(`${url}/Products`);
         const json = await response.json();
         if (response.ok) {
           setProducts(json);
