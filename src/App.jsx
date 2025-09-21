@@ -17,6 +17,7 @@ function App() {
 const fullUrl = new URL(window.location);
 const backendUrl = `http://${fullUrl.searchParams.get('ip')}:3000`;
 window.history.pushState({}, '', fullUrl); // Updates URL without reloading
+console.log(backendUrl)
 
 const [isLoggedIn, setIsLoggedIn] = useState(() => {
   return localStorage.getItem('isLoggedIn') === 'true';
