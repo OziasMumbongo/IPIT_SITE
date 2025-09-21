@@ -81,9 +81,9 @@ const addToCart = (product) => {
         <Route path="/swipper" element={<Swipper/>} />
         <Route path="/banner" element={<Banner/>} />
         <Route path="/checkout" element={<Checkout/>} />
-        <Route path="/orders" element={<Orders url={backendUrl} />} />
+        <Route path="/orders" element={<Orders url={url} />} />
 
-        <Route path="/products" element={<Product url={backendUrl} addToCart={addToCart} />} />
+        <Route path="/products" element={<Product url={url} addToCart={addToCart} />} />
 
         {/* ✅ New Cart Page */}
         <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
