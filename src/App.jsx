@@ -15,7 +15,7 @@ import SignupForm from './Component/SignUp/SignUp';
 function App() {
 
 const fullUrl = new URL(window.location);
-const backendUrl = `http://${fullUrl.searchParams.get('3.83.17.213')}:3000`;
+const backendUrl = `http://${fullUrl.searchParams.get('ip')}:3000`;
 window.history.pushState({}, '', fullUrl); // Updates URL without reloading
 
 const [isLoggedIn, setIsLoggedIn] = useState(() => {
