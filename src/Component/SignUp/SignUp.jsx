@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './SignUp.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-const SignupForm = ()=> {
+const SignupForm = ({backendURL})=> {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,7 +20,7 @@ const SignupForm = ()=> {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:3000/Users', {
+      const res = await fetch(`${backendURL}/Users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
