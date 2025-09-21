@@ -15,10 +15,8 @@ import SignupForm from './Component/SignUp/SignUp';
 function App() {
 
 const fullUrl = new URL(window.location);
-const ip = fullUrl.searchParams.get('ip');
-const backendUrl = ip ? `http://${ip}:3000` : 'http://localhost:3000'; // fallback to localhost
-window.history.pushState({}, '', fullUrl);
-
+const backendUrl = `http://${fullUrl.searchParams.get('ip')}:3000`;
+window.history.pushState({}, '', fullUrl); // Updates URL without reloading
 
 const [isLoggedIn, setIsLoggedIn] = useState(() => {
   return localStorage.getItem('isLoggedIn') === 'true';
