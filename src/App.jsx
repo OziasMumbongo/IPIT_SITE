@@ -15,10 +15,13 @@ import SignupForm from './Component/SignUp/SignUp';
 function App() {
 
 const fullUrl = new URL(window.location);
-const ip = fullUrl.searchParams.get('ip') || localStorage.getItem("ip");
+console.log("FullUrl ", fullUrl )
+const ip = fullUrl.searchParams.get('ip') || localStorage.getItem("ip") || "localhost";
+console.log("ip address from ip ", ip )
 localStorage.setItem("ip",ip);
 const url = `http://${ip}:3000`;
-window.history.pushState({}, '', fullUrl)
+console.log("New url>>> ", url )
+// window.history.pushState({}, '', url)
 
 const [isLoggedIn, setIsLoggedIn] = useState(() => {
   return localStorage.getItem('isLoggedIn') === 'true';

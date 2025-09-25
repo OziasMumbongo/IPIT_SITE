@@ -1,11 +1,23 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
 const LogIn = ({setIsLoggedIn, setCart }) => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
-  const navigate = useNavigate();
+
+   const [ip,setIp] = useState('');
+    const navigate = useNavigate();
+  
+  
+    useEffect(()=>{
+      const storedIp = localStorage.getItem("ip")
+      if(storedIp){
+        setIp(storedIp);
+        console.log("This is the IP ", ip)
+      }
+    })
+
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,7 +27,7 @@ const handleSubmit = async e => {
   e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:3000/login", {
+    const res = await fetch(`http://${ip}:3000/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

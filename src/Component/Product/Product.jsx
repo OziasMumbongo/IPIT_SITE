@@ -5,10 +5,15 @@ import NavBar from '../NavBar/NavBar';
 const Product = ({addToCart, searchQuery }) => {   // <-- accept addToCart from Home
   const [products, setProducts] = useState([]);
 
+ 
+
   useEffect(() => {
+    let ip = localStorage.getItem("ip")
+    console.log("This is the IP ", ip)
+    
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/Products`);
+        const response = await fetch(`http://${ip}:3000/Products`);
         const json = await response.json();
         if (response.ok) {
           setProducts(json);

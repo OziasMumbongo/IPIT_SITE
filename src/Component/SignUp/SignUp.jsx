@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './SignUp.css';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -10,8 +10,18 @@ const SignupForm = ()=> {
     age: '',
     location: '' 
   });
- 
+
+  const [ip,setIp] = useState('');
   const navigate = useNavigate();
+
+
+  useEffect(()=>{
+    const storedIp = localStorage.getItem("ip")
+    if(storedIp){
+      setIp(storedIp);
+      console.log("This is the IP ", ip)
+    }
+  })
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,7 +30,7 @@ const SignupForm = ()=> {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/Users", {
+      const res = await fetch(`http://${ip}:3000/Users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -49,7 +59,7 @@ const SignupForm = ()=> {
         </div>
 
         <div className="form-container">
-          <h2>Newcomer? You've come at the right place</h2>
+          <h2>Newcomer?</h2>
           <p className="subtext">Register with ease</p>
 
           <form onSubmit={handleSubmit}>
