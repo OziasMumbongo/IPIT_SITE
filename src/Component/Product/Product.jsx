@@ -13,7 +13,7 @@ const Product = ({addToCart, searchQuery }) => {   // <-- accept addToCart from 
     
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`http://${ip}:3000/Products`);
+        const response = await fetch('http://localhost:3000/Products');
         const json = await response.json();
         if (response.ok) {
           setProducts(json);

@@ -30,7 +30,21 @@ const SignupForm = ()=> {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://${ip}:3000/Users`, {
+
+      //This line of code Fetch existing users:
+      const checkRes = await fetch('http://localhost:3000/Users');
+      const users = await checkRes.json();
+
+      //This line of code checks if email already exists
+      const existingUser =users.find(user => user.email === formData.email);
+
+      if(existingUser){
+        alert('Email has been used already.')
+        return;
+      }
+
+      //This line of code helps you sign up successfully if there's no an existing email
+      const res = await fetch('http://localhost:3000/Users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

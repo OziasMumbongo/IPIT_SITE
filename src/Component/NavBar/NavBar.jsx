@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link, useNavigate } from 'react-router-dom';
 
-const NavBar = ({ cartCount, searchQuery, setSearchQuery }) => {
+const NavBar = ({ cart, cartCount, searchQuery, setSearchQuery }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [username, setUsername] = useState('');
 
@@ -26,7 +26,7 @@ const NavBar = ({ cartCount, searchQuery, setSearchQuery }) => {
   if (userEmail && cart) {
     localStorage.setItem(`cart_${userEmail}`, JSON.stringify(cart));
   }
-  
+
   localStorage.removeItem('isLoggedIn');
   localStorage.removeItem('username');
   localStorage.removeItem('userEmail');

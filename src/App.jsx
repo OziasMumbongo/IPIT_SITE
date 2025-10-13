@@ -14,13 +14,13 @@ import SignupForm from './Component/SignUp/SignUp';
 
 function App() {
 
-const fullUrl = new URL(window.location);
-console.log("FullUrl ", fullUrl )
-const ip = fullUrl.searchParams.get('ip') || localStorage.getItem("ip") || "localhost";
-console.log("ip address from ip ", ip )
-localStorage.setItem("ip",ip);
-const url = `http://${ip}:3000`;
-console.log("New url>>> ", url )
+// const fullUrl = new URL(window.location);
+// console.log("FullUrl ", fullUrl )
+// const ip = fullUrl.searchParams.get('ip') || localStorage.getItem("ip") || "localhost";
+// console.log("ip address from ip ", ip )
+// localStorage.setItem("ip",ip);
+// const url = `http://${ip}:3000`;
+// console.log("New url>>> ", url )
 // window.history.pushState({}, '', url)
 
 const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -66,7 +66,7 @@ const addToCart = (product) => {
         <Route path="/login" element={<LogIn setIsLoggedIn={setIsLoggedIn} setCart={setCart} />} />
         
         {/* Homepage gets cart + addToCart */}
-        <Route path="/home" element={<HomePage cart={cart} addToCart={addToCart} />} />
+        {/* <Route path="/home" element={<HomePage cart={cart} addToCart={addToCart} />} /> */}
 
         {/* Optional private route */}
         <Route
