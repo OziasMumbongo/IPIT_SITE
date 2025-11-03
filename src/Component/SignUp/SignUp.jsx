@@ -73,7 +73,7 @@ const SignupForm = ()=> {
         </div>
 
         <div className="form-container">
-          <h2>Newcomer?2335465</h2>
+          <h2>Newcomer?23</h2>
           <p className="subtext">Register with ease</p>
 
           <form onSubmit={handleSubmit}>
