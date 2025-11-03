@@ -3,7 +3,7 @@ name: Deploy to S3
 on:
   push:
     branches:
-      - main
+      - main  # Trigger the workflow when code is pushed to the main branch
 
 jobs:
   deploy:
@@ -22,4 +22,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
-          SOURCE_DIR: "dist" # Change this to your build folder
+          SOURCE_DIR: "dist"  # Change this if your build output folder is different
