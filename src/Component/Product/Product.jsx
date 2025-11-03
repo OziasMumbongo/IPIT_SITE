@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Product.css';
 import NavBar from '../NavBar/NavBar';
 
-const Product = ({addToCart, searchQuery }) => {   // <-- accept addToCart from Home
+const Product = ({addToCart, searchQuery,cart=[] }) => {   // <-- accept addToCart from Home
   const [products, setProducts] = useState([]);
 
  
@@ -27,12 +27,17 @@ const Product = ({addToCart, searchQuery }) => {   // <-- accept addToCart from 
     fetchProducts();
   }, []);
 
-   const filteredProducts = products.filter(product =>
-    product.Product.toLowerCase().includes(searchQuery.toLowerCase()));
+const filteredProducts = products.filter(product => 
+  (product.Product || '').toLowerCase().includes((searchQuery || '').toLowerCase())
+);
+
 
   return (
     <>
     <div className="homepage">
+      <NavBar cartCount={cart.length}
+      searchQuery={searchQuery}
+      />
       <h1 className="page-title">Shop Products</h1>
       <div className="products-list">
         {filteredProducts.length > 0 ? (

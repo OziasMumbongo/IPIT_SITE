@@ -85,7 +85,7 @@ const addToCart = (product) => {
         <Route path="/checkout" element={<Checkout/>} />
         <Route path="/orders" element={<Orders />} />
 
-        <Route path="/products" element={<Product addToCart={addToCart} />} />
+        <Route path="/products" element={<Product addToCart={addToCart} cart={cart} />} />
 
         {/* ✅ New Cart Page */}
         <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
