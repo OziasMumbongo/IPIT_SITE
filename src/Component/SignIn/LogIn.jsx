@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
+const esUrl = import.meta.env.ELASTIC_IP || 'http://98.94.158.209:3000'
+
 const LogIn = ({setIsLoggedIn, setCart }) => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
 
@@ -27,7 +29,7 @@ const handleSubmit = async e => {
   e.preventDefault();
 
   try {
-    const res = await fetch('http://localhost:3000/login', {
+    const res = await fetch(`${esUrl}/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -37,7 +39,6 @@ const handleSubmit = async e => {
     });
 
     const data = await res.json();
-
     if (!res.ok) {
       alert(data.message || 'Login failed.');
       return;

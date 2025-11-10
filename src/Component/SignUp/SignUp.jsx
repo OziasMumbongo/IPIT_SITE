@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import './SignUp.css';
 import { Link, useNavigate } from 'react-router-dom';
 
+const esUrl = import.meta.env.ELASTIC_IP || 'http://98.94.158.209:3000'
+
 const SignupForm = ()=> {
   const [formData, setFormData] = useState({
     name: '',
@@ -32,7 +34,7 @@ const SignupForm = ()=> {
     try {
 
       //This line of code Fetch existing users:
-      const checkRes = await fetch('http://localhost:3000/Users');
+      const checkRes = await fetch(`${esUrl}/Users`);
       const users = await checkRes.json();
 
       //This line of code checks if email already exists

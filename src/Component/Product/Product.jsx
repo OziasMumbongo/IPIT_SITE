@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Product.css';
 import NavBar from '../NavBar/NavBar';
 
+const esUrl = import.meta.env.ELASTIC_IP || 'http://98.94.158.209:3000'
+
 const Product = ({addToCart, searchQuery,cart=[] }) => {   // <-- accept addToCart from Home
   const [products, setProducts] = useState([]);
 
@@ -13,7 +15,7 @@ const Product = ({addToCart, searchQuery,cart=[] }) => {   // <-- accept addToCa
     
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3000/Products');
+        const response = await fetch(`${esUrl}/Products`);
         const json = await response.json();
         if (response.ok) {
           setProducts(json);
