@@ -29,7 +29,7 @@ const handleSubmit = async e => {
   e.preventDefault();
 
   try {
-    const res = await fetch(`${esUrl}/login`, {
+    const res = await fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -74,8 +74,8 @@ const handleSubmit = async e => {
   return (
     <div className="login-container">
       <div className="side-icons">
-        <img src="images/dog.jpg" alt="dog" className="dog-img" />
-        <img src="images/cat1.jpg" alt="cat" className="cat-img" />
+        <img src="images/f301f805dca493001b9e6ccafd1013-unscreen.gif" alt="dog" className="dog-img" />
+        <img src="images/icegif-86-unscreen.gif" alt="cat" className="cat-img" />
       </div>
 
       <div className="form-box">
@@ -120,8 +120,8 @@ const handleSubmit = async e => {
       </div>
 
       <div className="side-icons">
-        <img src="images/bird.jpg" alt="bird" className="bird-img" />
-        <img src="images/fish1.jpeg" alt="fish" className="fish-img" />
+        <img src="images/200w.gif" alt="bird" className="bird-img" />
+        <img src="images/8cmhp0lrvtqb1-unscreen.gif" alt="fish" className="fish-img" />
       </div>
     </div>
     

@@ -15,7 +15,7 @@ const Product = ({addToCart, searchQuery,cart=[] }) => {   // <-- accept addToCa
     
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${esUrl}/Products`);
+        const response = await fetch('http://localhost:3000/Products');
         const json = await response.json();
         if (response.ok) {
           setProducts(json);

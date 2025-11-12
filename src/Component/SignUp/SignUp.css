@@ -102,7 +102,6 @@ input {
   box-sizing: border-box;
 }
 
-
 button {
   margin-top: 20px;
   padding: 12px;
@@ -183,4 +182,311 @@ form a {
 
 .login{
   color: blue;
+}
+
+@media (min-width: 1500px) and (max-width: 1700px){
+  /* *{
+    color: red;
+  } */
+
+  .dog-img1, .cat-img1{
+    width: 139%;
+    height: 225px;
+    margin: 0 0 0 0;
+}
+
+  .bird-img1, .fish-img1{
+    width: 139%;
+    height: 225px;
+    margin: 0 0 0 -90%;
+}
+
+  .form-container{
+    max-width: 550px;
+    height: 95vh;
+    border: 3px solid black;
+  }
+
+  .form-container h2 {
+    font-size: 28px;
+    margin:-4px 0 10px 0;
+}
+
+  .subtext {
+    font-size: 14px;
+    color: #444;
+    /* margin-bottom: 25px;
+    padding-bottom: 5px; */
+    border-bottom: 1px solid #000;
+    text-align: center;
+    width: fit-content;
+}
+
+form {
+    max-width: 380px;
+}
+
+label {
+    font-size: 16px;
+    margin: 15px 0 7px;
+    
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #aaa;
+  /* border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box; */
+}
+
+input::placeholder{
+  font-size: 16px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 14px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+}
+
+}
+
+/*For 80% zoom level*/
+@media (min-width: 1700px) and (max-width: 1800px){
+  /* *{
+    color: rgb(0, 255, 76);
+  } */
+
+  .dog-img1, .cat-img1{
+    width: 139%;
+    height: 254px;
+    margin: 0 0 0 0;
+}
+
+  .bird-img1, .fish-img1{
+    width: 139%;
+    height: 254px;
+    margin: 0 0 0 -90%;
+}
+
+  .form-container{
+    max-width: 620px;
+    height: 95vh;
+    border: 3px solid black;
+  }
+
+  .form-container h2 {
+    font-size: 32px;
+    margin:-4px 0 10px 0;
+}
+
+  .subtext {
+    font-size: 15px;
+    color: #444;
+    /* margin-bottom: 25px;
+    padding-bottom: 5px; */
+    border-bottom: 1px solid #000;
+    text-align: center;
+    width: fit-content;
+}
+
+form {
+    max-width: 410px;
+}
+
+label {
+    font-size: 18px;
+    margin: 15px 0 7px;
+    
+}
+
+input {
+  padding: 16px;
+  border: 1px solid #aaa;
+  /* border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box; */
+}
+
+input::placeholder{
+  font-size: 18px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 18px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 18px;
+}
+
+}
+
+/*This is for 75% zoom level*/
+@media (min-width: 1800px) and (max-width: 2000px){
+  /* *{
+    color: rgb(255, 0, 200);
+  } */
+
+  .dog-img1, .cat-img1{
+    width: 139%;
+    height: 273px;
+    margin: 0 0 0 0;
+}
+
+  .bird-img1, .fish-img1{
+    width: 139%;
+    height: 273px;
+    margin: 0 0 0 -90%;
+}
+
+  .form-container{
+    max-width: 653px;
+    height: 95vh;
+    border: 3px solid black;
+  }
+
+  .form-container h2 {
+    font-size: 35px;
+    margin:-4px 0 10px 0;
+}
+
+  .subtext {
+    font-size: 16px;
+    color: #444;
+    /* margin-bottom: 25px;
+    padding-bottom: 5px; */
+    border-bottom: 1px solid #000;
+    text-align: center;
+    width: fit-content;
+}
+
+form {
+    max-width: 440px;
+}
+
+label {
+    font-size: 19px;
+    margin: 15px 0 7px;
+    
+}
+
+input {
+  padding: 18px;
+  border: 1px solid #aaa;
+  /* border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box; */
+}
+
+input::placeholder{
+  font-size: 19px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 19px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 19px;
+}
+
+}
+
+/*This is for 67% zoom level */
+@media (min-width: 2000px) and (max-width: 2700px){
+  /* *{
+    color: rgb(255, 208, 0);
+  } */
+
+  .dog-img1, .cat-img1{
+    width: 139%;
+    height:315px;
+    margin: 0 0 0 0;
+}
+
+  .bird-img1, .fish-img1{
+    width: 139%;
+    height: 315px;
+    margin: 0 0 0 -90%;
+}
+
+  .form-container{
+    max-width: 725px;
+    height: 95vh;
+    border: 3px solid black;
+  }
+
+  .form-container h2 {
+    font-size: 40px;
+    margin:-4px 0 10px 0;
+}
+
+  .subtext {
+    font-size: 18px;
+    color: #444;
+    /* margin-bottom: 25px;
+    padding-bottom: 5px; */
+    border-bottom: 1px solid #000;
+    text-align: center;
+    width: fit-content;
+}
+
+form {
+    max-width: 470px;
+}
+
+label {
+    font-size: 21px;
+    margin: 15px 0 7px;
+    
+}
+
+input {
+  padding: 22px;
+  border: 1px solid #aaa;
+  /* border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box; */
+}
+
+input::placeholder{
+  font-size: 21px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 22px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+}
+
 }

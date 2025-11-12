@@ -34,7 +34,7 @@ const SignupForm = ()=> {
     try {
 
       //This line of code Fetch existing users:
-      const checkRes = await fetch(`${esUrl}/Users`);
+      const checkRes = await fetch('http://localhost:3000/Users');
       const users = await checkRes.json();
 
       //This line of code checks if email already exists
@@ -67,10 +67,10 @@ const SignupForm = ()=> {
 
         <div className="side-icons">
           <div className='side-images'>
-            <img src="images/dog.jpg" alt="dog" className="dog-img1" />
+            <img src="images/f301f805dca493001b9e6ccafd1013-unscreen.gif" alt="dog" className="dog-img1" />
           </div>
           <div className='side-images'>
-            <img src="images/cat1.jpg" alt="" className="cat-img1" />
+            <img src="images/icegif-86-unscreen.gif" alt="" className="cat-img1" />
           </div>
         </div>
 
@@ -101,10 +101,10 @@ const SignupForm = ()=> {
 
         <div className="side-animals">
           <div className='side-images'>
-            <img src="images/bird.jpg" alt="" className="bird-img1" />
+            <img src="images/200w.gif" alt="" className="bird-img1" />
           </div>
           <div className='side-images'>
-            <img src="images/fish1.jpeg" alt="" className="fish-img1" />
+            <img src="images/8cmhp0lrvtqb1-unscreen.gif" alt="" className="fish-img1" />
           </div>
         </div>
 
