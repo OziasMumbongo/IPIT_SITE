@@ -15,7 +15,7 @@ const Product = ({addToCart, searchQuery,cart=[] }) => {   // <-- accept addToCa
     
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3000/Products');
+        const response = await fetch(`${esUrl}/Products`);
         const json = await response.json();
         if (response.ok) {
           setProducts(json);
@@ -37,13 +37,13 @@ const filteredProducts = products.filter(product =>
   return (
     <>
     <div className="homepage">
-      <NavBar cartCount={cart.length}
+      {/* <NavBar cartCount={cart.length}
       searchQuery={searchQuery}
-      />
+      /> */}
       <h1 className="page-title">Shop Products</h1>
       <div className="products-list">
         {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
+          filteredProducts.slice(0,15).map((product) => (
             <div key={product._id} className="product-card">
               <div className="image-container">
                 <img src={product.Image} alt={product.Product} />

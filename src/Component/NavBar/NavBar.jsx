@@ -43,11 +43,11 @@ const NavBar = ({ cart, cartCount, searchQuery, setSearchQuery }) => {
 
       <div className={`links_names ${menuOpen ? "active" : ""}`}>
         <a href="/homepage" className='links'>HOME</a>
-        <a href="/products" className='links'>Dogs</a>
-        <a href="/products" className='links'>Cats</a>
-        <a href="/products" className='links'>Fish</a>
-        <a href="/products" className='links'>Small Pet</a>
-        <a href="/products" className='links'>Birds</a>
+        <a href="/dogs" className='links'>Dogs</a>
+        <a href="/cats" className='links'>Cats</a>
+        <a href="/fish" className='links'>Fish</a>
+        <a href="/smallpets" className='links'>Small Pet</a>
+        <a href="/birds" className='links'>Birds</a>
       </div>
 
       <div className="icons">

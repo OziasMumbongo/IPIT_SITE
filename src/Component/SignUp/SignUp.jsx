@@ -34,7 +34,7 @@ const SignupForm = ()=> {
     try {
 
       //This line of code Fetch existing users:
-      const checkRes = await fetch('http://localhost:3000/Users');
+      const checkRes = await fetch(`${esUrl}/Users`);
       const users = await checkRes.json();
 
       //This line of code checks if email already exists
@@ -46,7 +46,7 @@ const SignupForm = ()=> {
       }
 
       //This line of code helps you sign up successfully if there's no an existing email
-      const res = await fetch('http://localhost:3000/Users', {
+      const res = await fetch(`${esUrl}/Users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

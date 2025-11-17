@@ -11,6 +11,11 @@ import Cart from './Component/Cart/Cart';
 import Checkout from './Component/Checkout/Checkout';
 import Orders from './Component/Orders/Orders';
 import SignupForm from './Component/SignUp/SignUp';
+import Dogs from './Pages/Dogs';
+import Cat from './Pages/Cat';
+import Fish from './Pages/Fish';
+import SmallPets from './Pages/SmallPets';
+import Birds from './Pages/Birds';
 
 function App() {
 
@@ -86,6 +91,13 @@ const addToCart = (product) => {
         <Route path="/orders" element={<Orders />} />
 
         <Route path="/products" element={<Product addToCart={addToCart} cart={cart} />} />
+        <Route path="/dogs" element={<Dogs addToCart={addToCart} cart={cart} category="Dogs" />} />
+        <Route path="/cats" element={<Cat addToCart={addToCart} cart={cart} category="Cats" />} />
+        <Route path="/fish" element={<Fish addToCart={addToCart} cart={cart} category="Fish" />} />
+        <Route path="/smallpets" element={<SmallPets addToCart={addToCart} cart={cart} category="Other Pets" />} />
+        <Route path="/birds" element={<Birds addToCart={addToCart} cart={cart} category="Birds" />} />
+
+
 
         {/* ✅ New Cart Page */}
         <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
