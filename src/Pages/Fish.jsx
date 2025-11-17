@@ -3,7 +3,7 @@ import NavBar from '../Component/NavBar/NavBar';
 import './Dogs.css';
 
 // Use localhost instead of esUrl
-const esUrl = 'http://localhost:3000';
+const esUrl =  import.meta.env.ELASTIC_IP || 'http://98.94.158.209:3000';
 
 const Fish = ({ addToCart, cart = [], category }) => {
   const [products, setProducts] = useState([]);
