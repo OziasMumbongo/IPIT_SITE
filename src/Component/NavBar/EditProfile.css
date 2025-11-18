@@ -1,0 +1,47 @@
+.edit-profile-page {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.edit-profile-page h1 {
+  text-align: center;
+  color: #2d5a27;
+  margin-bottom: 20px;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.edit-profile-form label {
+  font-weight: 500;
+  color: #333;
+}
+
+.edit-profile-form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.btn-save-profile {
+  padding: 12px;
+  background-color: #2d5a27;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.btn-save-profile:hover {
+  background-color: #1f3d1b;
+}

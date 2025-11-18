@@ -10,68 +10,77 @@ import { Link, useNavigate } from 'react-router-dom';
 const NavBar = ({ cart, cartCount, searchQuery, setSearchQuery }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [username, setUsername] = useState('');
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedName = localStorage.getItem('username');
-    if (storedName) {
-      setUsername(storedName);
-    }
+    if (storedName) setUsername(storedName);
   }, []);
-
-  const [showDropdown, setShowDropdown] = useState(false);
-  const navigate = useNavigate()
 
   const handleLogout = () => {
     const userEmail = localStorage.getItem('userEmail');
-  if (userEmail && cart) {
-    localStorage.setItem(`cart_${userEmail}`, JSON.stringify(cart));
-  }
+    if (userEmail && cart) {
+      localStorage.setItem(`cart_${userEmail}`, JSON.stringify(cart));
+    }
 
-  localStorage.removeItem('isLoggedIn');
-  localStorage.removeItem('username');
-  localStorage.removeItem('userEmail');
-  navigate('/login');
-};
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    localStorage.removeItem('userEmail');
+    navigate('/login');
+  };
 
+  const handleEditProfile = () => {
+    setShowDropdown(false); // close dropdown
+    navigate('/edit-profile');
+  };
 
   return (
     <nav className="navBar">
+      {/* Logo */}
       <div className="nav-left">
-        <img src="images/Logo PetWorld.jpg" alt="PetWorld" className='logo' />
+        <Link to="/homepage">
+          <img src="/images/Logo PetWorld.jpg" alt="PetWorld" className='logo' />
+        </Link>
         <h1 className='logo_name'>PetWorld</h1>
       </div>
 
+      {/* Navigation Links */}
       <div className={`links_names ${menuOpen ? "active" : ""}`}>
-        <a href="/homepage" className='links'>HOME</a>
-        <a href="/dogs" className='links'>Dogs</a>
-        <a href="/cats" className='links'>Cats</a>
-        <a href="/fish" className='links'>Fish</a>
-        <a href="/smallpets" className='links'>Small Pet</a>
-        <a href="/birds" className='links'>Birds</a>
+        <Link to="/homepage" className='links'>HOME</Link>
+        <Link to="/dogs" className='links'>Dogs</Link>
+        <Link to="/cats" className='links'>Cats</Link>
+        <Link to="/fish" className='links'>Fish</Link>
+        <Link to="/smallpets" className='links'>Small Pet</Link>
+        <Link to="/birds" className='links'>Birds</Link>
       </div>
 
+      {/* Icons and Search */}
       <div className="icons">
         <div className="search-bar">
           <input
             type="text"
             placeholder="Search products..."
             value={searchQuery}
-            onChange={(e)=> setSearchQuery(e.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
 
-      <div className="account-icon" onClick={() => setShowDropdown(!showDropdown)}>
-  <AccountCircleIcon className='icon-tags' />
-  {username && <span className="username">{username}</span>}
+        {/* Account Dropdown */}
+        <div className="account-icon" onClick={() => setShowDropdown(!showDropdown)}>
+          <AccountCircleIcon className='icon-tags' />
+          {username && <span className="username">{username}</span>}
 
-  {showDropdown && (
-    <div className="dropdown-menu">
-      <button onClick={handleLogout}>Logout</button>
-    </div>
-  )}  
-</div>
+          {showDropdown && (
+            <div className="dropdown-menu">
+              <button onClick={handleEditProfile}>Edit Profile</button>
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+          )}
+        </div>
 
-
+        {/* Shopping Cart */}
         <div className="cart-wrapper">
           <Link to="/cart">
             <ShoppingCartIcon className='icon-tags' />
@@ -79,6 +88,7 @@ const NavBar = ({ cart, cartCount, searchQuery, setSearchQuery }) => {
           </Link>
         </div>
 
+        {/* Hamburger Menu */}
         <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </div>

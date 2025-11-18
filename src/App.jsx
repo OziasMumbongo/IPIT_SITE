@@ -16,6 +16,8 @@ import Cat from './Pages/Cat';
 import Fish from './Pages/Fish';
 import SmallPets from './Pages/SmallPets';
 import Birds from './Pages/Birds';
+import ProductDetail from './Component/Product/ProductDetails';
+import EditProfile from './Component/NavBar/EditProfile';
 
 function App() {
 
@@ -85,12 +87,14 @@ const addToCart = (product) => {
 
         {/* Other components */}
         <Route path="/navbar" element={<NavBar cartCount={cart.length} />} />
+        <Route path="/edit-profile" element={<EditProfile cart={cart} />} />
         <Route path="/swipper" element={<Swipper/>} />
         <Route path="/banner" element={<Banner/>} />
         <Route path="/checkout" element={<Checkout/>} />
         <Route path="/orders" element={<Orders />} />
 
         <Route path="/products" element={<Product addToCart={addToCart} cart={cart} />} />
+        <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} cart={cart} />} />
         <Route path="/dogs" element={<Dogs addToCart={addToCart} cart={cart} category="Dogs" />} />
         <Route path="/cats" element={<Cat addToCart={addToCart} cart={cart} category="Cats" />} />
         <Route path="/fish" element={<Fish addToCart={addToCart} cart={cart} category="Fish" />} />
@@ -100,7 +104,7 @@ const addToCart = (product) => {
 
 
         {/* ✅ New Cart Page */}
-        <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
+        <Route path="/cart" element={<Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />} />
       </Routes>
     </BrowserRouter>
   );

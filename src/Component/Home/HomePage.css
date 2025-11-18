@@ -10,6 +10,7 @@ body, html {
 
 .homepage {
   color: #333;
+
 }
 
 
@@ -115,6 +116,9 @@ body, html {
   color: white;
   text-align: center;
   padding: 20px;
+  width: 103%;
+  margin-left: -20px;
+  height: 85px;
 }
 
 .footer a {

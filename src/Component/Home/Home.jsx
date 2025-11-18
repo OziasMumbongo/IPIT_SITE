@@ -9,12 +9,12 @@ const Home = ({ cart, addToCart }) => {   // ✅ receive from App.js
  const [searchQuery, setSearchQuery] = useState('')
 
   return (
-    <div className="homepage">
+  <>
       <NavBar cartCount={cart.length}
       searchQuery={searchQuery} 
       setSearchQuery={setSearchQuery} 
       />   {/* ✅ use cart from props */}
-    
+    <div className="homepage">
       <header className="hero-section">
         <Swipper/>
         <Banner/>
@@ -24,12 +24,13 @@ const Home = ({ cart, addToCart }) => {   // ✅ receive from App.js
         <h2>Features</h2>
         <Product addToCart={addToCart} searchQuery={searchQuery}/>   {/* ✅ still works */}
       </section>
+    </div>
 
       <footer className="footer">
         <p>&copy; 2025 MySite. All rights reserved.</p>
-        <a href="#contact">Contact Us</a>
+        <a href="https://www.instagram.com/the_boi_called_ozi/?hl=en">Contact Us</a>
       </footer>
-    </div>
+  </>
   );
 };
 

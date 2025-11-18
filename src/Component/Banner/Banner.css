@@ -11,7 +11,7 @@
 }
 
 .mySwiper1 .swiper-slide img {
-  width: 70%;
+  /* width: 70%; */
   height: 30vh;         /* Fixed height for consistency */
   object-fit: cover;     /* Crop to fill nicely */
   border-radius: 15px;   /* Rounded corners */
@@ -38,4 +38,21 @@
   color: #333;
   margin: 0;
   text-transform: uppercase;
+}
+
+.dog-image {
+  width: 100%;
+}
+.cat-image {
+  width: 130%;
+  margin-left: -30%;
+}
+.fish-image { 
+  width: 98%;
+}
+.bird-image {
+  width: 98%;
+}
+.small-pets-image {
+  width: 100%;
 }

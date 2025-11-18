@@ -80,10 +80,10 @@ const Checkout = () => {
         <input type="text" name="postalCode" placeholder="Postal Code" value={formData.postalCode} onChange={handleChange} required />
         <input type="text" name="country" placeholder="Country" value={formData.country} onChange={handleChange} required />
         <h2>Payment Details</h2>
-        <input type="text" name="cardNumber" placeholder="Card Number" value={formData.cardNumber} onChange={handleChange} required />
+        <input type="text" name="cardNumber" maxLength="16" placeholder="Card Number" value={formData.cardNumber} onChange={handleChange} required />
         <input type="text" name="cardName" placeholder="Name on Card" value={formData.cardName} onChange={handleChange} required />
-        <input type="text" name="expiry" placeholder="Expiry MM/YY" value={formData.expiry} onChange={handleChange} required />
-        <input type="text" name="cvv" placeholder="CVV" value={formData.cvv} onChange={handleChange} required />
+        <input type="date" name="expiry" placeholder="Expiry MM/YY" value={formData.expiry} onChange={handleChange} required />
+        <input type="text" maxLength="4" name="cvv" placeholder="CVV" value={formData.cvv} onChange={handleChange} required />
 
         <button type="submit" className="place-order-btn">Place Order (R{total.toFixed(2)})</button>
       </form>

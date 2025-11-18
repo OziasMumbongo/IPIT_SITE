@@ -1,0 +1,114 @@
+.product-detail-page {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+}
+
+/* LEFT SIDE (IMAGE) */
+.detail-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.detail-left img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  object-fit: contain;
+}
+
+/* RIGHT SIDE (TEXT + DETAILS) */
+.detail-right {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 15px;
+}
+
+.detail-right h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.detail-right h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2f8f2f;
+  margin: 0;
+}
+
+.detail-right p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ADD TO CART BUTTON */
+.btn-add-to-cart {
+  background: #ff9900;
+  color: #fff;
+  border: none;
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 55%;
+  transition: 0.2s;
+}
+
+.btn-add-to-cart:hover {
+  background: #e68900;
+}
+
+/* RATINGS SECTION */
+.ratings-section {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.ratings-section h3 {
+  margin: 0 0 10px 0;
+}
+
+/* REVIEWS SECTION */
+.reviews-section {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.review-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-item strong {
+  font-size: 16px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+  .product-detail-page {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .detail-left img {
+    max-width: 350px;
+  }
+}
